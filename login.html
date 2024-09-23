@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Página de Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .login-container h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #6e45e2;
+      box-shadow: 0px 0px 5px rgba(110, 69, 226, 0.5);
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #6e45e2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #573bb1;
+    }
+
+    .forgot-password {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .forgot-password a {
+      color: #6e45e2;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password a:hover {
+      color: #573bb1;
+    }
+
+    @media (max-width: 768px) {
+      .login-container {
+        padding: 30px;
+      }
+
+      .login-container h1 {
+        font-size: 20px;
+      }
+    }
+
+    .error-message {
+      color: red;
+      text-align: center;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Faça Login</h1>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Digite seu email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="Digite sua senha" required>
+      </div>
+      <button type="submit" class="login-btn">Entrar</button>
+      <div class="forgot-password">
+        <a href="#">Esqueceu sua senha?</a>
+      </div>
+      <p id="errorMessage" class="error-message">Email ou senha incorretos!</p>
+    </form>
+  </div>
+
+  <script>
+    // Função para validar o login e redirecionar
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Impede o envio do formulário
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('errorMessage');
+
+      // Credenciais de exemplo (substitua por validação real conforme necessário)
+      const validEmail = 'luiz@hotmail.com';
+      const validPassword = '1234';
+
+      if (email === validEmail && password === validPassword) {
+        // Redireciona para a página principal
+        window.location.href = 'pagina_principal.html';  // Certifique-se de que essa página exista
+      } else {
+        // Mostra a mensagem de erro
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
